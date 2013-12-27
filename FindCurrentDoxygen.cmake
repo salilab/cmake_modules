@@ -23,7 +23,7 @@ endif(DOXYGEN_FOUND)
 
 if ("${CMAKE_SYSTEM_NAME}" STREQUAL "Linux")
   set(doxygen_url "http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.6.linux.bin.tar.gz" CACHE INTERNAL "")
-  set(doxygen_md5 eb50a231b634e1189f039e78e95e1260)
+  set(doxygen_md5 756f67161821e17712ddd255052520a9)
 endif()
 if ("${CMAKE_SYSTEM_NAME}" STREQUAL "MacOS")
   set(doxygen_url "http://ftp.stack.nl/pub/users/dimitri/Doxygen-1.8.6.dmg" CACHE INTERNAL "")
