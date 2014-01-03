@@ -42,12 +42,13 @@ if(NOT IMP_DOXYGEN_FOUND)
   else()
     set(IMP_FETCH_DOXYGEN False CACHE INTERNAL "")
   endif()
-endif()
+endif(NOT IMP_DOXYGEN_FOUND)
 
 if(IMP_FETCH_DOXYGEN)
     include(ExternalProject)
     message(STATUS "Will download doxygen from ${doxygen_url}")
-    ExternalProject_Add( download_doxygen
+    if(NOT TARGET download_doxygen)
+      ExternalProject_Add( download_doxygen
             SOURCE_DIR "${CMAKE_BINARY_DIR}/tools/doxygen"
             URL ${doxygen_url}
             URL_MD5 ${doxygen_md5}
@@ -55,8 +56,13 @@ if(IMP_FETCH_DOXYGEN)
             BUILD_COMMAND ${CMAKE_COMMAND} -E echo "build"
             INSTALL_COMMAND ${CMAKE_COMMAND} -E echo "install"
             )
+        endif(NOT TARGET download_doxygen)
     set(IMP_DOXYGEN_FETCH download_doxygen CACHE INTERNAL "")
     set(IMP_DOXYGEN_FOUND True CACHE INTERNAL "")
     set(IMP_DOXYGEN_EXECUTABLE "${CMAKE_BINARY_DIR}/tools/doxygen/bin/doxygen" CACHE INTERNAL "")
-endif()
-endif()
+else()
+    set(IMP_DOXYGEN_FETCH  CACHE INTERNAL "")
+    set(IMP_DOXYGEN_FOUND False CACHE INTERNAL "")
+    set(IMP_DOXYGEN_EXECUTABLE "doxygen-NOT-FOUND" CACHE INTERNAL "")
+endif(IMP_FETCH_DOXYGEN)
+endif(${has_element_tree})
