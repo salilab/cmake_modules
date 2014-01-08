@@ -49,7 +49,6 @@ function(imp_add_cpp_tests modulename length output target_list tests)
      GET_FILENAME_COMPONENT(name ${test} NAME)
      GET_FILENAME_COMPONENT(name_we ${test} NAME_WE)
      add_executable("${modulename}-${name}" ${test})
-     set(${target_list} ${target_list} "${modulename}-${name}" CACHE INTERNAL "")
      target_link_libraries("${modulename}-${name}"     ${IMP_LINK_LIBRARIES})
      set_target_properties("${modulename}-${name}" PROPERTIES
                            RUNTIME_OUTPUT_DIRECTORY "${output}"
