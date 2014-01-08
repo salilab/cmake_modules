@@ -64,7 +64,7 @@ function(imp_add_cpp_tests modulename length output target_list tests)
      endif()
      set_tests_properties("${modulename}-${name}" PROPERTIES TIMEOUT ${timeout})
      set_tests_properties("${modulename}-${name}" PROPERTIES COST ${IMP_${length}_COST})
-     set(executables ${executables} "${modulename}-${name}")
+     set(${target_list} ${${target_list}} "${modulename}-${name}" CACHE INTERNAL "" FORCE PARENT_SCOPE)
   endforeach(test)
 endfunction(imp_add_cpp_tests)
 
