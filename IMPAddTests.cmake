@@ -69,7 +69,6 @@ endfunction(imp_add_cpp_tests)
 
 
 function(imp_add_tests modulename output target_list tests)
-  message(STATUS "Test setup command is ${IMP_TEST_SETUP}")
   set(modulename ${ARGV0})
   set(output ${ARGV1})
   set(target_list ${ARGV2})
