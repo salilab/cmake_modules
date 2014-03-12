@@ -6,7 +6,7 @@ if(NOT DEFINED IMP_TIMEOUT_FACTOR)
     endif()
 endif()
 
-set(IMP_CHEAP_TIMEOUT 2 CACHE INT "Timeout for cheap tests")
+set(IMP_CHEAP_TIMEOUT 5 CACHE INT "Timeout for cheap tests")
 set(IMP_MEDIUM_TIMEOUT 15 CACHE INT "Timeout for medium tests")
 set(IMP_EXPENSIVE_TIMEOUT 120 CACHE INT "Timeout for expensive tests")
 set(IMP_CHEAP_COST 1 CACHE INTERNAL "")
