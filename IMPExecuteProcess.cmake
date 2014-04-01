@@ -2,7 +2,6 @@
 function(imp_get_process_exit_code name variable dir)
   set(name ${ARGV0})
   set(status ${ARGV1})
-  message(STATUS ${dir})
   list(REMOVE_AT ARGV 0)
   list(REMOVE_AT ARGV 0)
   list(REMOVE_AT ARGV 0)
